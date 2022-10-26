@@ -17,7 +17,7 @@ export default {
     border-radius: 15px;
   }
 
-  h1 {
+  h2 {
     color: goldenrod;
   }
 </style>

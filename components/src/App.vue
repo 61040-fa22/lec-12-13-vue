@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-    <h1>Hello from the top-level App component!</h1>
+    <Header />
+
+    <h2>
+      Hello from the top-level App component!
+    </h2> 
+
+    <Counter />
+    <Counter />
+    <Counter />
+    <Counter />
   </div>
 </template>
 
 <script lang="ts">
+import Header from './components/Header.vue';
+import Counter from './components/Counter.vue';
 
 export default {
   name: 'app',
+  components: {Header, Counter}
 }
 </script>
 
