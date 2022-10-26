@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13"></script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="app" :style="{background: rgb}">
+    <p>{{message}}</p>
+
+    <p>{{message.split('').reverse().join('')}}</p>
+
+    <p>
+      {{reversedMessage}}
+    </p>
+
+    <p>
+      <input type="text" v-model="message">
+    </p>
+
+    <p v-for="color in fontColor">
+      <input 
+        type="range" min="0" max="255" step="1" 
+        v-model="color.value" /> {{color.value}}
+    </p>
+
+    <button v-on:click="setFontColor">Set Font Color</button>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        message: "Welcome to 6.1040",
+        rgb: 'rgb(0, 0, 0)',
+        fontColor: [{value: 0}, {value: 0}, {value: 0}],
+      },
+      computed: {
+        reversedMessage() {
+          return this.message.split('').reverse().join('');
+        }
+      },
+      methods: {
+        setFontColor() {
+          const c = this.fontColor.map(c => c.value);
+          this.rgb = `rgb(${c[0]}, ${c[1]}, ${c[2]})`;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
